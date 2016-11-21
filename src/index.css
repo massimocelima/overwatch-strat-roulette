@@ -2,4 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(236, 239, 241);
+}
+.content {
+  margin: 24px;
+  minHeight: "400px",
 }

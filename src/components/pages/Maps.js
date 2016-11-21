@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
+import FeatureBar from "../FeatureBar"
 
-//require('../markdown.css');
 
 class Maps extends Component {
   constructor(props, context) {
@@ -12,11 +12,11 @@ class Maps extends Component {
   render() {
     return (
         <div>
-          <Title render={(previousTitle) => `Maps - ${previousTitle}`} />
-          <div className="markdown-body">
-            <h2>Maps</h2>
-            <p>Select you map below</p>
-          </div>
+            <Title render={(previousTitle) => `Maps - ${previousTitle}`} />
+            <FeatureBar title="Maps" />
+            <div className="content">
+                <p>Select you map below</p>
+            </div>
         </div>
     );
   }

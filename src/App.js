@@ -65,10 +65,6 @@ class App extends Component {
 
     getStyles() {
         const styles = {
-            content: {
-                margin: spacing.desktopGutter,
-                minHeight: "400px",
-            },
             appBar: {
                 boxShadow: "0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12),0 1px 8px 0 rgba(0,0,0,0.2)",
             }
@@ -138,8 +134,8 @@ class App extends Component {
                 />
 
                 <ScrollableContent left={leftContentPosition}>
-                    <div style={styles.content}>
-                        {this.props.children}
+                    <div style={{backgroundColor: "#eceff1"}}>
+                    {this.props.children}
                     </div>
                 </ScrollableContent>
 
