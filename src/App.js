@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Link from 'react-router';
 
 import Title from 'react-title-component';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -11,6 +10,8 @@ import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 
 import AppDrawer from './components/AppDrawer';
 import ScrollableContent from "./components/ScrollableContent"
+
+import './App.css';
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -92,6 +93,8 @@ class App extends Component {
 
         let handleTouchTapLeftIconButton = this.handleTouchTapLeftIconButton;
 
+        let title = 'Overwatch Strat Roulette';
+
         if (this.props.width === LARGE || this.props.width === MEDIUM) {
             showHeader = false;
             docked = true;
@@ -102,14 +105,17 @@ class App extends Component {
             drawerStyle.zIndex = muiTheme.zIndex.appBar - 1;
             leftContentPosition = muiTheme.drawer.width;
             handleTouchTapLeftIconButton = this.handleTouchTapTitle;
-        }
 
-        const title = 'Overwatch Strat Roulette';
+            title = <div className="appBarTitleContainer">
+                <img src={process.env.PUBLIC_URL + '/img/logo.png'} className="appBarLogo" />
+                Overwatch Strat Roulette
+            </div>;
+        }
 
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
             <div>
-                <Title render={title} />
+                <Title render="Overwatch Strat Roulette" />
 
                 <AppBar
                     onLeftIconButtonTouchTap={handleTouchTapLeftIconButton}
@@ -118,12 +124,7 @@ class App extends Component {
                     titleStyle={{cursor: 'pointer'}}
                     style={styles.appBar}
                     iconStyleLeft={{display: 'flex', cursor: 'pointer'}}
-                    iconElementLeft={
-                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                            <img src="img/logo.png" style={{width: 40, height: 40}} />
-                        </div>
-                    }
-                    showMenuIconButton={true}
+                    showMenuIconButton={showMenuIconButton}
                 />
 
                 <AppDrawer
