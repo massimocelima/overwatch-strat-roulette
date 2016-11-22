@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Title from 'react-title-component';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import FeatureBar from "../FeatureBar"
-
+import RaisedButton from "material-ui/RaisedButton"
 
 class Maps extends Component {
   constructor(props, context) {
@@ -16,6 +16,7 @@ class Maps extends Component {
             <FeatureBar title="Maps" />
             <div className="content">
                 <p>Select you map below</p>
+                <RaisedButton label={"This is the button label"} primary={true} />
             </div>
         </div>
     );

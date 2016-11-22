@@ -4,7 +4,21 @@ body {
   font-family: sans-serif;
   background-color: rgb(236, 239, 241);
 }
+body, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
 .content {
   margin: 24px;
   minHeight: "400px",
+}
+.textAlignCenter {
+  text-align: center;
+}
+.card {
+  margin: 10px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12)
+}
+.card img {
+  width: inherit;
+  height: inherit;
 }

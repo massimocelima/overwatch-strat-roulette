@@ -10,6 +10,7 @@ import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 
 import AppDrawer from './components/AppDrawer';
 import ScrollableContent from "./components/ScrollableContent"
+import FeatureAppBar from "./components/AppBar/FeatureAppBar"
 
 import './App.css';
 
@@ -45,7 +46,7 @@ class App extends Component {
     };
 
     handleTouchTapTitle = () => {
-        this.context.router.push("home");
+        this.context.router.push("/");
     };
 
     handleChangeRequestNavDrawer = (open) => {
@@ -61,6 +62,15 @@ class App extends Component {
         });
     };
 
+    handleScrolled = (event) => {
+        if( event.srcElement.scrollTop > 2 )
+        {
+            //this.setState({
+            //    scrolled: true
+            //});
+        }
+    }
+
     //.3s cubic-bezier(0.4,0.0,0.2,1);
 
     getStyles() {
@@ -71,6 +81,11 @@ class App extends Component {
         }
 
         return styles;
+    }
+
+    isHome() {
+        var currentLocation = this.props.location.pathname;
+        return currentLocation == "/" || currentLocation == "/home";
     }
 
     render() {
@@ -91,7 +106,8 @@ class App extends Component {
 
         let title = 'Overwatch Strat Roulette';
 
-        if (this.props.width === LARGE || this.props.width === MEDIUM) {
+
+        if ( ! this.isHome() && (this.props.width === LARGE || this.props.width === MEDIUM )) {
             showHeader = false;
             docked = true;
             navDrawerOpen = true;
@@ -103,25 +119,35 @@ class App extends Component {
             handleTouchTapLeftIconButton = this.handleTouchTapTitle;
 
             title = <div className="appBarTitleContainer">
-                <img src={process.env.PUBLIC_URL + '/img/logo.png'} className="appBarLogo" />
+                <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} className="appBarLogo" />
                 Overwatch Strat Roulette
             </div>;
         }
+
 
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
             <div>
                 <Title render="Overwatch Strat Roulette" />
 
-                <AppBar
-                    onLeftIconButtonTouchTap={handleTouchTapLeftIconButton}
-                    onTitleTouchTap={this.handleTouchTapTitle}
-                    title={title}
-                    titleStyle={{cursor: 'pointer'}}
-                    style={styles.appBar}
-                    iconStyleLeft={{display: 'flex', cursor: 'pointer'}}
-                    showMenuIconButton={showMenuIconButton}
-                />
+                {this.isHome() ?
+                    <FeatureAppBar
+                        onMenuClick={handleTouchTapLeftIconButton}
+                        containerHeight={410}
+                        appBarHeight={48}
+                        title="Overwatch Strat Roulette"
+                    />
+                    :
+                    <AppBar
+                        onLeftIconButtonTouchTap={handleTouchTapLeftIconButton}
+                        onTitleTouchTap={this.handleTouchTapTitle}
+                        title={title}
+                        titleStyle={{cursor: 'pointer', flex: ''}}
+                        style={styles.appBar}
+                        iconStyleLeft={{display: 'flex', cursor: 'pointer'}}
+                        showMenuIconButton={showMenuIconButton}
+                    />
+                }
 
                 <AppDrawer
                     style={drawerStyle}
@@ -133,16 +159,22 @@ class App extends Component {
                     open={navDrawerOpen}
                 />
 
-                <ScrollableContent left={leftContentPosition}>
+                {this.isHome() ?
                     <div style={{backgroundColor: "#eceff1"}}>
-                    {this.props.children}
-                    </div>
-                </ScrollableContent>
+                        {this.props.children}
+                    </div> :
+                   <ScrollableContent left={leftContentPosition} onScroll={this.handleScrolled}>
+                        <div style={{backgroundColor: "#eceff1"}}>
+                            {this.props.children}
+                        </div>
+                    </ScrollableContent>
+                }
 
             </div>
         </MuiThemeProvider>
     );
   }
+
 }
 
 export default withWidth()(App);

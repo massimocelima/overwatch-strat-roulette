@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
 import {spacing, typography, zIndex} from 'material-ui/styles';
@@ -35,6 +36,8 @@ class AppDrawer extends Component {
               fontWeight: typography.fontWeightLight,
               paddingLeft: spacing.desktopGutter,
               marginBottom: 8,
+              display: "flex",
+              flexDirection: 'column'
           },
           icon: {
             top:15,
@@ -63,15 +66,19 @@ class AppDrawer extends Component {
       let styles = this.getStyles();
       const iconColor = "#555";
 
+      let title = <div className="appBarTitleContainer" style={{color: 'black'}}>
+          <img src={process.env.PUBLIC_URL + '/img/logo.png'} className="appBarLogo" />
+          <div>Strat Roulette</div>
+      </div>;
+
       let header = "";
       if(showHeader)
           header =
-              <div>
-                <div style={styles.logo} onTouchTap={this.handleTouchTapHeader}>
-                  Strat Roulette
-                </div>
-              <Divider />;
-              </div>
+                  <AppBar
+                    style={{backgroundColor: 'white', color: "black"}}
+                    title={title}
+                    showMenuIconButton={false}>
+                  </AppBar>
 
       return (
 

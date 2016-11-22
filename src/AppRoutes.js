@@ -7,7 +7,7 @@ import {
 
 // Here we define all our material-ui ReactComponents.
 import App from './App';
-import Home from './components/pages/Home';
+import Home from './components/Home/Home';
 import Maps from './components/pages/Maps';
 import Contact from './components/pages/Contact';
 import Strats  from './components/pages/Strats';

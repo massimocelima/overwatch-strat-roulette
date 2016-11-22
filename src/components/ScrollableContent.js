@@ -11,11 +11,20 @@ class ScrollableContent extends Component {
 
   static propTypes = {
     children: PropTypes.node,
-    left: PropTypes.number.isRequired
+    left: PropTypes.number.isRequired,
+    onScroll: PropTypes.func
   };
 
+    componentDidMount() {
+        ReactDOM.findDOMNode(this).addEventListener('scroll', this.props.onScroll);
+    };
+
+    componentWillUnmount() {
+        ReactDOM.findDOMNode(this).removeEventListener('scroll', this.props.onScroll);
+    };
+
   componentDidUpdate() {
-    ReactDOM.findDOMNode(this).scrollTop = 0;
+        ReactDOM.findDOMNode(this).scrollTop = 0;
   };
 
   getStyles() {
