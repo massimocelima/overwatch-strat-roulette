@@ -18,10 +18,18 @@ class Home extends Component {
       //-webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
       //box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
 
-      const styles = {maxWidth: 906};
+      const styles = {maxWidth: 906, textAlign: 'center'};
 
       return (
         <div style={{backgroundColor: "#cfd8dc"}}>
+          <FullWidthSection useContent={true} contentStyle={styles}>
+            <p>
+              The best strat roulette for Overwatch their is, not even sure if any others exist!
+            </p>
+            <p>
+              To start rolling the dice or roulette ball thingy click on <Link className="simple-link" to="/maps">Maps</Link>
+            </p>
+          </FullWidthSection>
           <div style={{padding: 20, backgroundColor: 'white'}}>
             <FullWidthSection useContent={true} contentStyle={styles}>
               <HomeFeature
