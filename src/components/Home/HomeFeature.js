@@ -37,10 +37,6 @@ class HomeFeature extends Component {
                 margin: `0 auto ${desktopGutter}px auto`,
             },
             rootWhenMedium: {
-                float: 'left',
-                width: '33%',
-                marginRight: 4,
-                marginBottom: 0,
             },
             image: {
                 // Not sure why this is needed but it fixes a display issue in chrome

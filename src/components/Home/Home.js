@@ -18,11 +18,21 @@ class Home extends Component {
       //-webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
       //box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
 
-      const styles = {maxWidth: 906, textAlign: 'center'};
+      const styles = {
+        containerOverride: {
+                maxWidth: 906,
+                textAlign: 'center'
+        },
+        containerParent : {
+              paddingTop: 80,
+              paddingBottom: 80,
+              backgroundColor: 'white'
+        }
+      };
 
       return (
         <div style={{backgroundColor: "#cfd8dc"}}>
-          <FullWidthSection useContent={true} contentStyle={styles}>
+          <FullWidthSection useContent={true} contentStyle={styles.containerOverride}>
             <p>
               The best strat roulette for Overwatch their is, not even sure if any others exist!
             </p>
@@ -30,27 +40,33 @@ class Home extends Component {
               To start rolling the dice or roulette ball thingy click on <Link className="simple-link" to="/maps">Maps</Link>
             </p>
           </FullWidthSection>
-          <div style={{padding: 20, backgroundColor: 'white'}}>
-            <FullWidthSection useContent={true} contentStyle={styles}>
-              <HomeFeature
-                  heading="Maps"
-                  route="/maps"
-                  img="img/maps.svg"
-                  firstChild={true}
-              />
-              <HomeFeature
-                  heading="Strats"
-                  route="/strats"
-                  img="img/strats.svg"
-              />
-              <HomeFeature
-                  heading="Contact"
-                  route="/contact"
-                  img="img/contact.svg"
-                  lastChild={true}
-              />
-            </FullWidthSection>
 
+          <div style={styles.containerParent}>
+            <div className="container" style={styles.containerOverride}>
+              <div className="row">
+                <div className="col-md-4">
+                  <HomeFeature
+                      heading="Maps"
+                      route="/maps"
+                      img="img/maps.svg"
+                  />
+                </div>
+                <div className="col-md-4">
+                  <HomeFeature
+                      heading="Strats"
+                      route="/strats"
+                      img="img/strats.svg"
+                  />
+                </div>
+                <div className="col-md-4">
+                  <HomeFeature
+                      heading="Contact"
+                      route="/contact"
+                      img="img/contact.svg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div style={{display: 'none'}}>
