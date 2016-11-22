@@ -33,7 +33,7 @@ class Home extends Component {
               <HomeFeature
                   heading="Strats"
                   route="/strats"
-                  img="img/strats.svg"
+                  img="img/strats-2.png"
               />
               <HomeFeature
                   heading="Contact"
@@ -61,7 +61,7 @@ class Home extends Component {
             <Card className="card" style={{width: '33%'}}>
               <CardMedia>
                 <Link to="/strats">
-                  <img src="img/strats.png" />
+                  <img src="img/strats-2.png" />
                 </Link>
               </CardMedia>
               <CardTitle title="Strats" subtitle="What to know what strats we have create" />
