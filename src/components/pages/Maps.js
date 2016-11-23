@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import FeatureBar from "../FeatureBar"
 import RaisedButton from "material-ui/RaisedButton"
 
@@ -23,5 +22,5 @@ class Maps extends Component {
   }
 }
 
-export default withWidth()(Maps);
+export default Maps;
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 
 import FeatureBar from "../FeatureBar"
 
@@ -21,4 +20,4 @@ class Contact extends Component {
   }
 }
 
-export default withWidth()(Contact);
+export default Contact;

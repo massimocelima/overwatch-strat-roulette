@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from "react-dom";
+import { ScrollContainer } from 'react-router-scroll';
 
-import spacing from 'material-ui/styles/spacing';
-import withWidth, {SMALL, MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import Footer from './Footer';
@@ -12,7 +11,8 @@ class ScrollableContent extends Component {
   static propTypes = {
     children: PropTypes.node,
     left: PropTypes.number.isRequired,
-    onScroll: PropTypes.func
+    onScroll: PropTypes.func,
+    scrollKey: PropTypes.string.isRequired
   };
 
     componentDidMount() {
@@ -52,12 +52,16 @@ class ScrollableContent extends Component {
     const styles = this.getStyles();
 
     return (
-        <div style={styles.root}>
-          {this.props.children}
-          <Footer/>
-        </div>
+        <ScrollContainer
+            scrollKey={this.props.scrollKey}
+        >
+            <div style={styles.root}>
+              {this.props.children}
+              <Footer />
+            </div>
+        </ScrollContainer>
     );
   }
 }
 
-export default withWidth()(muiThemeable()(ScrollableContent));
+export default muiThemeable()(ScrollableContent);

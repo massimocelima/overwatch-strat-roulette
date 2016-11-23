@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import FeatureBar from "../FeatureBar"
 
 class Strats extends Component {
@@ -20,4 +19,4 @@ class Strats extends Component {
   }
 }
 
-export default withWidth()(Strats);
+export default Strats;

@@ -10,7 +10,7 @@ const FeatureAppBar = React.createClass({
         onMenuClick: React.PropTypes.func,
         appBarHeight: React.PropTypes.number.isRequired,
         containerHeight: React.PropTypes.number.isRequired,
-        title: React.PropTypes.object.isRequired,
+        title: React.PropTypes.string.isRequired,
     },
 
     componentDidMount: function() {
@@ -39,7 +39,6 @@ const FeatureAppBar = React.createClass({
     render() {
         const styles = this.getStyles();
         let zDepth = this.state.zDepth;
-        let height = this.props.height;
 
         return (
             <div style={{backgroundColor: this.props.muiTheme.palette.primary1Color, height: this.props.containerHeight}} ref="elementToFire">

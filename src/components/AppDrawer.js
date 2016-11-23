@@ -8,6 +8,7 @@ import withWidth, {SMALL, LARGE} from 'material-ui/utils/withWidth';
 import TerrainIcon from 'material-ui/svg-icons/maps/terrain';
 import ChatIcon from 'material-ui/svg-icons/communication/chat';
 import ListIcon from 'material-ui/svg-icons/editor/format-list-bulleted';
+import AboutIcon from 'material-ui/svg-icons/action/help';
 
 const SelectableList = makeSelectable(List);
 
@@ -95,6 +96,7 @@ class AppDrawer extends Component {
         >
           <ListItem primaryText="Lets Roll!" value="/maps" leftAvatar={<TerrainIcon style={styles.icon} color={iconColor} />} />
           <ListItem primaryText="Strats" value="/strats" leftAvatar={<ListIcon style={styles.icon} color={iconColor} />} />
+            <ListItem primaryText="About" value="/about" leftAvatar={<AboutIcon style={styles.icon} color={iconColor} />} />
           <ListItem primaryText="Contact" value="/contact" leftAvatar={<ChatIcon style={styles.icon} color={iconColor} />} />
 
         </SelectableList>

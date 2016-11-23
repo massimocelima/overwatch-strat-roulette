@@ -1,4 +1,4 @@
-## Live demo
+# Live demo
 
 Changes are automatically rendered as you type.
 

@@ -163,10 +163,11 @@ class App extends Component {
                     <div style={{backgroundColor: "#eceff1"}}>
                         {this.props.children}
                     </div> :
-                   <ScrollableContent left={leftContentPosition} onScroll={this.handleScrolled}>
-                        <div style={{backgroundColor: "#eceff1"}}>
-                            {this.props.children}
-                        </div>
+                   <ScrollableContent
+                       scrollKey="main-content"
+                       left={leftContentPosition}
+                       onScroll={this.handleScrolled}>
+                        {this.props.children}
                     </ScrollableContent>
                 }
 

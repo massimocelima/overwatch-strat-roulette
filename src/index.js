@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, hashHistory, browserHistory } from 'react-router';
+import {Router, hashHistory, browserHistory, applyRouterMiddleware } from 'react-router';
+import { useScroll } from 'react-router-scroll';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import AppRoutes from './AppRoutes';
@@ -15,7 +16,7 @@ injectTapEventPlugin();
 ReactDOM.render(
     <Router
         history={browserHistory}
-        onUpdate={() => window.scrollTo(0, 0)}
+        render={applyRouterMiddleware(useScroll())}
     >
         {AppRoutes}
     </Router>
