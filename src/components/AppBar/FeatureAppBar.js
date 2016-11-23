@@ -25,7 +25,8 @@ const FeatureAppBar = React.createClass({
         return {
             title: {
                 opacity: opacity,
-                transition: 'opacity 450ms'
+                transition: 'opacity 450ms',
+                fontWeight: 300,
             },
         };
     },

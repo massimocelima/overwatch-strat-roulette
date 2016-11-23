@@ -20,8 +20,9 @@ class Home extends Component {
 
       const styles = {
         containerOverride: {
-                maxWidth: 906,
-                textAlign: 'center'
+            maxWidth: 906,
+            textAlign: 'center',
+            fontSize: 20,
         },
         containerParent : {
               paddingTop: 80,
@@ -107,7 +108,7 @@ class Home extends Component {
             </FullWidthSection>
           </div>
 
-          <div className="content textAlignCenter">
+          <div className="content textAlignCenter containerOverride">
             <p>
               Want to make a donation?
             </p>

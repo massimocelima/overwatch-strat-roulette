@@ -34,7 +34,7 @@ class Footer extends Component {
                 padding: 0,
                 color: lightWhite,
                 lineHeight: '25px',
-                fontSize: 12,
+                fontSize: 14,
             },
             materialuiLogo: {
                 margin: '0 3px',
