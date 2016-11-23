@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import Maps from './components/pages/Maps';
 import Contact from './components/pages/Contact';
 import Strats  from './components/pages/Strats';
+import About from './components/pages/About';
 
 const NotFound = () => (
     <h1>404.. This page is not found!</h1>)
@@ -31,6 +32,7 @@ const AppRoutes = (
     <Route path="maps" component={Maps} />
     <Route path="strats" component={Strats} />
     <Route path="contact" component={Contact} />
+      <Route path="about" component={About} />
     <Route path='*' component={NotFound} />
   </Route>
 );
