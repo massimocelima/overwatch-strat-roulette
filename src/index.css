@@ -14,6 +14,14 @@ body, h1, h2, h3, h4, h5, h6 {
 .textAlignCenter {
   text-align: center;
 }
+a.simple-link {
+  color: #039be5;
+  text-decoration: underline;
+}
+a.simple-link:hover {
+  color: #1976D2;
+  text-decoration: underline;
+}
 .card {
   margin: 10px;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12)
