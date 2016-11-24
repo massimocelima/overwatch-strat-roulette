@@ -52,7 +52,7 @@ class Home extends Component {
                   <HomeFeature
                       heading="Maps"
                       route="/maps"
-                      img="img/maps2.svg"
+                      img="img/maps3.svg"
                   />
                 </div>
                 <div className="col-md-4">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="22 -22 300 300" style="enable-background:new 22 -22 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFC107;}
+	.st1{fill:#FFA000;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#FFD73C;}
+	.st4{fill:#2ECC71;}
+	.st5{fill:#43ADF1;}
+	.st6{fill:#27AD60;}
+	.st7{fill:#D5B432;}
+	.st8{fill:#3A96D1;}
+	.st9{fill:#E74C3C;}
+</style>
+<rect x="22" y="-22" class="st0" width="300" height="300"/>
+<polygon class="st1" points="72.8,233.6 117.8,278 322,278 322,84.4 275.2,37.8 216.9,51.4 193.8,28.5 "/>
+<polygon class="st2" points="141.8,217.2 72.8,233.6 72.8,53.9 141.8,37.9 "/>
+<polyline class="st3" points="72.8,177.2 72.8,201.2 142.2,172.2 142.2,147.9 72.8,177.2 "/>
+<polygon class="st4" points="72.8,177.2 72.8,53.9 82.2,51.2 142.2,131.1 142.2,147.9 "/>
+<polygon class="st5" points="72.8,233.6 72.8,201.2 142.2,172.2 141.8,217.2 "/>
+<polygon class="st3" points="82.2,51.2 107.3,45.9 142.2,90.2 142.2,131.1 "/>
+<polygon class="st4" points="107.3,45.9 141.8,37.9 142.2,90.2 "/>
+<polygon class="st6" points="141.8,37.8 214.4,52 214.4,131 172.8,141.3 142.2,90.1 "/>
+<polygon class="st6" points="142.2,147.9 150.2,145.9 142.2,131.1 "/>
+<path class="st6" d="M141.8,37.8"/>
+<polygon class="st7" points="142.2,147.9 150.2,145.9 142.2,131.1 142.2,90.1 172.8,141.3 214.4,131 214.4,154.9 142.2,172.2 "/>
+<polygon class="st8" points="142.2,172.2 214.4,154.9 213.8,233.6 141.8,217.2 "/>
+<polygon class="st5" points="213.5,233.6 275.2,217.2 275.2,129.2 214.1,154.9 "/>
+<polygon class="st3" points="275.2,129.2 275.2,105.2 214.4,131 214.1,154.9 "/>
+<polygon class="st4" points="275.2,105.2 275.2,37.8 214.4,52 214.4,131 "/>
+<path class="st9" d="M201.3,45.4c0,12.7-46,12.7-46,0s10.3-23,23-23S201.3,32.7,201.3,45.4z"/>
+<polygon class="st9" points="155.3,45.4 178.3,94.9 201.3,45.4 "/>
+<circle cx="178.1" cy="45.5" r="10.6"/>
+</svg>
