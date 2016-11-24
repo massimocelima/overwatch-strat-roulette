@@ -9,6 +9,7 @@
   width: 100px;
   height: 100px;
   animation: App-logo-spin infinite 2s cubic-bezier(0.23, 1, 1, 1);
+  animation-delay: 1s;
 }
 .feature-title-container h1 {
   color: rgba(255, 255, 255, 0.870588);

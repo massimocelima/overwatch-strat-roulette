@@ -40,6 +40,9 @@ class Home extends Component {
             <p>
               To start rolling the dice or roulette ball thingy click on <Link className="simple-link" to="/maps">Maps</Link>
             </p>
+              <p>
+                  Don't know what Strat Roulette is. Neither did I, <Link className="simple-link" to="/about">click here</Link> to find out more.
+              </p>
           </FullWidthSection>
 
           <div style={styles.containerParent}>
@@ -49,21 +52,21 @@ class Home extends Component {
                   <HomeFeature
                       heading="Maps"
                       route="/maps"
-                      img="img/maps.svg"
+                      img="img/maps2.svg"
                   />
                 </div>
                 <div className="col-md-4">
                   <HomeFeature
                       heading="Strats"
                       route="/strats"
-                      img="img/strats-2.png"
+                      img="img/strats2.svg"
                   />
                 </div>
                 <div className="col-md-4">
                   <HomeFeature
                       heading="About"
                       route="/about"
-                      img="img/contact.svg"
+                      img="img/desk.svg"
                   />
                 </div>
               </div>
