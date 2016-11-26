@@ -1,0 +1,82 @@
+{
+  "maps": [
+    {
+      "name": "TEMPLE OF ANUBIS",
+      "description": "",
+      "categories": ["ASSAULT"],
+      "image": "/img/maps/temple-of-anubis-thumb.jpg"
+    },
+    {
+      "name": "HANAMURA",
+      "description": "",
+      "categories": ["ASSAULT"],
+      "image": "/img/maps/hanamura-thumb.jpg"
+    },
+    {
+      "name": "VOLSKAYA INDUSTRIES",
+      "description": "",
+      "categories": ["ASSAULT"],
+      "image": "/img/maps/volskaya-thumb.jpg"
+    },
+    {
+      "name": "WATCHPOINT: GIBRALTAR",
+      "description": "",
+      "categories": ["ESCORT"],
+      "image": "/img/maps/gibraltar-thumb.jpg"
+    },
+    {
+      "name": "DORADO",
+      "description": "",
+      "categories": ["ESCORT"],
+      "image": "/img/maps/dorado-thumb.jpg"
+    },
+    {
+      "name": "ROUTE 66",
+      "description": "",
+      "categories": ["ESCORT"],
+      "image": "/img/maps/route-66-thumb.jpg"
+    },
+    {
+      "name": "LIJIANG TOWER",
+      "description": "",
+      "categories": ["CONTROL"],
+      "image": "/img/maps/lijiang-thumb.jpg"
+    },
+    {
+      "name": "ILIOS",
+      "description": "",
+      "categories": ["CONTROL"],
+      "image": "/img/maps/ilios-thumb.jpg"
+    },
+    {
+      "name": "NEPAL",
+      "description": "",
+      "categories": ["CONTROL"],
+      "image": "/img/maps/nepal-thumb.jpg"
+    },
+    {
+      "name": "KING'S ROW",
+      "description": "",
+      "categories": ["ASSAULT", "ESCORT"],
+      "image": "/img/maps/kings-row-thumb.jpg"
+    },
+    {
+      "name": "NUMBANI",
+      "description": "",
+      "categories": ["ASSAULT", "ESCORT"],
+      "image": "/img/maps/numbani-thumb.jpg"
+    },
+    {
+      "name": "HOLLYWOOD",
+      "description": "",
+      "categories": ["ASSAULT", "ESCORT"],
+      "image": "/img/maps/hollywood-thumb.jpg"
+    },
+    {
+      "name": "EICHENWALDE",
+      "description": "",
+      "categories": ["ASSAULT", "ESCORT"],
+      "image": "/img/maps/germany-thumb.jpg"
+    }
+  ]
+}

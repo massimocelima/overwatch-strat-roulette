@@ -10,7 +10,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 .content {
   margin: 24px;
-  minHeight: "400px",
+  min-height: 400px;
 }
 .textAlignCenter {
   text-align: center;
