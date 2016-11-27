@@ -6,7 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import AppRoutes from './AppRoutes';
 import './index.css';
-import './bootstrap.css';
+//import './bootstrap.css';
 import './markdown.css';
 
 // Needed for onTouchTap

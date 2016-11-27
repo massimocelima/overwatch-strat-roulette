@@ -15,6 +15,10 @@ body, h1, h2, h3, h4, h5, h6 {
 .textAlignCenter {
   text-align: center;
 }
+.containerPadding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 a.simple-link {
   color: #039be5;
   text-decoration: underline;
@@ -22,6 +26,13 @@ a.simple-link {
 a.simple-link:hover {
   color: #1976D2;
   text-decoration: underline;
+}
+.grid {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 1248px;
+  margin-right: auto;
+  marginLeft: auto;
 }
 .card {
   margin: 10px;

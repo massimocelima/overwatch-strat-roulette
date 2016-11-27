@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
+import Paper from 'material-ui/Paper';
 
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
 
-import FeatureBar from "../FeatureBar"
-import Map from "./Map"
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
+import FeatureBar from "../FeatureBar";
+import Map from "./Map";
+
+
+const headerStyle = {
+    padding: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+    width: '100%'
+};
 
 class Maps extends Component {
   constructor(props, context) {
@@ -29,38 +39,23 @@ class Maps extends Component {
 
         let maps = this.state.maps;
 
-        const numberOfColumns = 3;
-        let rows = [];
-        let i = 0;
-        maps.forEach(map => {
-            if( i % numberOfColumns == 0) rows.push([]);
-            rows[Math.floor(i/numberOfColumns)].push(map);
-            i++;
-        });
-
         return (
-            <div>
+            <div style={{backgroundColor : "rgb(207, 216, 220)"}}>
                 <Title render={(previousTitle) => `Maps - ${previousTitle}`} />
                 <FeatureBar title="Maps" />
 
-                <div className="content">
+                <Paper style={headerStyle} zDepth={1} >
+                    <h3>Welcome to the list of maps</h3>
                     <p>Select the map below</p>
+                </Paper>
 
-                        {maps == null &&
-                            <h2>Loading...</h2>
-                        }
-                        {maps != null && rows.map((row, i) =>
-
-                            <div key={i} className="row">
-                             {row.map((map, j) =>
-                                <div key={map.name} className="col-md-4">
-                                    <Map map={map}></Map>
-                                </div>
-                             )}
-                            </div>
+                <Grid fluid className="grid" >
+                    <Row>
+                        {maps != null && maps.map((map, i) =>
+                            <Col key={i} xs={12} sm={12} md={6} lg={4}><Map map={map}></Map></Col>
                         )}
-
-                </div>
+                    </Row>
+                </Grid>
 
             </div>
         );
