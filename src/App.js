@@ -10,7 +10,7 @@ import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 
 import AppDrawer from './components/AppDrawer';
 import ScrollableContent from "./components/ScrollableContent"
-import FeatureAppBar from "./components/AppBar/FeatureAppBar"
+import FeatureAppBar from "./components/FeatureAppBar/FeatureAppBar"
 
 import './App.css';
 
