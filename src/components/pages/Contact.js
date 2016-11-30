@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
 
-import FeatureBar from "../FeatureBar"
+import mdContact from './Contact.md';
+
+import FeatureBar from "../FeatureBar/FeatureBar"
+import AppMarkdown from "../AppMarkdown/AppMarkdown"
 
 class Contact extends Component {
   constructor(props, context) {
@@ -13,8 +16,7 @@ class Contact extends Component {
         <div>
             <Title render={(previousTitle) => `Contact - ${previousTitle}`} />
             <FeatureBar title="Contact" />
-            <div className="content">
-            </div>
+            <AppMarkdown source={mdContact} />
         </div>
     );
   }

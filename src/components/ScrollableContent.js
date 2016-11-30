@@ -4,7 +4,7 @@ import { ScrollContainer } from 'react-router-scroll';
 
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 
 class ScrollableContent extends Component {
 

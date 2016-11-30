@@ -1,0 +1,28 @@
+.root {
+  background-color: #212121;
+  text-align: center;
+  width: 100%;
+  p {
+    margin: 0 auto;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.54);
+    maxWidth: 356px;
+  }
+}
+.link {
+  color: rgba(255, 255, 255, 0.87);
+}
+.materialui {
+  justify-content: center;
+  margin: 25px 15px 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.54);
+  line-height: 25px;
+  fontSize: 14px;
+}
+.logo {
+  margin: 0 3px;
+}
+.iconButton {
+  color: rgba(255, 255, 255, 0.87);
+}

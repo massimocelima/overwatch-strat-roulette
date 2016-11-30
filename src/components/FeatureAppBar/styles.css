@@ -1,0 +1,36 @@
+.root {
+  text-align: center;
+}
+.image {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+.image img {
+  width: 100px;
+  height: 100px;
+  animation: app-logo-spin infinite 5s cubic-bezier(0.075,  0.820, 0.165, 1.000);
+  animation-delay: 1s;
+}
+.title h1 {
+  color: rgba(255, 255, 255, 0.870588);
+  font-weight: 300;
+  font-size: 56px;
+}
+.title h2 {
+  color: rgba(255, 255, 255, 0.870588);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 32px;
+  padding-top: 16px;
+  margin-bottom: 12px;
+  letter-spacing: 0px;
+}
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1800deg);
+  }
+}
+

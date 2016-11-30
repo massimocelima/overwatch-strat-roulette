@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import muiThemeable from 'material-ui/styles/muiThemeable';
+import CSSModules from 'react-css-modules';
 
-import "./FeatureBar.css"
+import styles from "./styles.css"
 
 class FeatureBar extends Component {
 
@@ -12,9 +13,9 @@ class FeatureBar extends Component {
   render() {
 
       return (
-      <div className="featurebar">
-          <div className="featurebar-title-area">
-              <div className="featurebar-title">
+      <div styleName="root">
+          <div styleName="title-bar">
+              <div styleName="title">
                   {this.props.title}
               </div>
           </div>
@@ -23,4 +24,4 @@ class FeatureBar extends Component {
   }
 }
 
-export default muiThemeable()(FeatureBar);
+export default muiThemeable()(CSSModules( FeatureBar, styles ));

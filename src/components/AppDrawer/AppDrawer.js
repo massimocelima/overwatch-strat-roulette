@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react';
+import CSSModules from 'react-css-modules';
+
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
@@ -9,6 +11,8 @@ import TerrainIcon from 'material-ui/svg-icons/maps/terrain';
 import ChatIcon from 'material-ui/svg-icons/communication/chat';
 import ListIcon from 'material-ui/svg-icons/editor/format-list-bulleted';
 import AboutIcon from 'material-ui/svg-icons/action/help';
+
+import styles from './styles.css';
 
 const SelectableList = makeSelectable(List);
 
@@ -29,7 +33,7 @@ class AppDrawer extends Component {
 
   getStyles()
   {
-      const styles = {
+      const inlineStyles = {
           logo: {
               cursor: 'pointer',
               fontSize: 24,
@@ -45,7 +49,7 @@ class AppDrawer extends Component {
           }
       };
 
-      return styles;
+      return inlineStyles;
   };
 
   handleTouchTapHeader = () => {
@@ -64,20 +68,18 @@ class AppDrawer extends Component {
         showHeader
     } = this.props;
 
-      let styles = this.getStyles();
+      let inlineStyles = this.getStyles();
       const iconColor = "#555";
-
-      let title = <div className="appBarTitleContainer" style={{color: 'black'}}>
-          <img src={process.env.PUBLIC_URL + '/img/logo.png'} className="appBarLogo" />
-          <div>Strat Roulette</div>
-      </div>;
 
       let header = "";
       if(showHeader)
           header =
                   <AppBar
                     style={{backgroundColor: 'white', color: "black"}}
-                    title={title}
+                    title={<div className={styles.root}>
+                        <img src={process.env.PUBLIC_URL + '/img/logo.png'} className={styles.logo} />
+                        <div>Strat Roulette</div>
+                    </div>}
                     showMenuIconButton={false}>
                   </AppBar>
 
@@ -94,10 +96,10 @@ class AppDrawer extends Component {
           value={location.pathname}
           onChange={onChangeList}
         >
-          <ListItem primaryText="Lets Roll!" value="/maps" leftAvatar={<TerrainIcon style={styles.icon} color={iconColor} />} />
-          <ListItem primaryText="Strats" value="/strats" leftAvatar={<ListIcon style={styles.icon} color={iconColor} />} />
-            <ListItem primaryText="About" value="/about" leftAvatar={<AboutIcon style={styles.icon} color={iconColor} />} />
-          <ListItem primaryText="Contact" value="/contact" leftAvatar={<ChatIcon style={styles.icon} color={iconColor} />} />
+          <ListItem primaryText="Lets Roll!" value="/maps" leftAvatar={<TerrainIcon style={inlineStyles.icon} color={iconColor} />} />
+          <ListItem primaryText="Strats" value="/strats" leftAvatar={<ListIcon style={inlineStyles.icon} color={iconColor} />} />
+            <ListItem primaryText="About" value="/about" leftAvatar={<AboutIcon style={inlineStyles.icon} color={iconColor} />} />
+          <ListItem primaryText="Contact" value="/contact" leftAvatar={<ChatIcon style={inlineStyles.icon} color={iconColor} />} />
 
         </SelectableList>
       </Drawer>
@@ -105,4 +107,4 @@ class AppDrawer extends Component {
   }
 }
 
-export default withWidth()(AppDrawer);
+export default withWidth()(CSSModules( AppDrawer, styles ));

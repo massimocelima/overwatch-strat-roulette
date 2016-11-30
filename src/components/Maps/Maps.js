@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
+import CSSModules from 'react-css-modules';
+
 import Paper from 'material-ui/Paper';
 
 import fetch from 'isomorphic-fetch';
 
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
-import FeatureBar from "../FeatureBar";
+import FeatureBar from "../FeatureBar/FeatureBar";
 import Map from "./Map";
-
+import styles from "./styles.css"
 
 const headerStyle = {
     padding: 20,
@@ -49,7 +51,7 @@ class Maps extends Component {
                     <p>Select the map below</p>
                 </Paper>
 
-                <Grid fluid className="grid" >
+                <Grid fluid styleName="grid" >
                     <Row>
                         {maps != null && maps.map((map, i) =>
                             <Col key={i} xs={12} sm={12} md={6} lg={4}><Map map={map}></Map></Col>
@@ -62,5 +64,5 @@ class Maps extends Component {
   }
 }
 
-export default Maps;
+export default CSSModules(Maps, styles);
 

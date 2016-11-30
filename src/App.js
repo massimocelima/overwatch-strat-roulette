@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 import Title from 'react-title-component';
+import CSSModules from 'react-css-modules';
+
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
@@ -8,11 +10,11 @@ import spacing from 'material-ui/styles/spacing';
 import {darkWhite, lightWhite, grey900} from 'material-ui/styles/colors';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 
-import AppDrawer from './components/AppDrawer';
+import AppDrawer from './components/AppDrawer/AppDrawer';
 import ScrollableContent from "./components/ScrollableContent"
 import FeatureAppBar from "./components/FeatureAppBar/FeatureAppBar"
 
-import './App.css';
+import styles from './App.css';
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -74,14 +76,14 @@ class App extends Component {
     //.3s cubic-bezier(0.4,0.0,0.2,1);
 
     getStyles() {
-        const styles = {
+        const inlineStyles = {
             appBar: {
                 boxShadow: "0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12),0 1px 8px 0 rgba(0,0,0,0.2)",
                 fontWeight: 300,
             }
         }
 
-        return styles;
+        return inlineStyles;
     }
 
     isHome() {
@@ -101,7 +103,7 @@ class App extends Component {
         let leftContentPosition = 0;
 
         let drawerStyle = { };
-        let styles = this.getStyles();
+        let inlineStyles = this.getStyles();
 
         let handleTouchTapLeftIconButton = this.handleTouchTapLeftIconButton;
 
@@ -118,11 +120,6 @@ class App extends Component {
             drawerStyle.zIndex = muiTheme.zIndex.appBar - 1;
             leftContentPosition = muiTheme.drawer.width;
             handleTouchTapLeftIconButton = this.handleTouchTapTitle;
-
-            title = <div className="appBarTitleContainer">
-                <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} className="appBarLogo" />
-                Overwatch Strat Roulette
-            </div>;
         }
 
 
@@ -142,9 +139,12 @@ class App extends Component {
                     <AppBar
                         onLeftIconButtonTouchTap={handleTouchTapLeftIconButton}
                         onTitleTouchTap={this.handleTouchTapTitle}
-                        title={title}
+                        title={<div className={styles.root}>
+                            <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} className={styles.logo} />
+                            Overwatch Strat Roulette
+                        </div>}
                         titleStyle={{cursor: 'pointer', flex: ''}}
-                        style={styles.appBar}
+                        style={inlineStyles.appBar}
                         iconStyleLeft={{display: 'flex', cursor: 'pointer'}}
                         showMenuIconButton={showMenuIconButton}
                     />
@@ -179,4 +179,4 @@ class App extends Component {
 
 }
 
-export default withWidth()(App);
+export default withWidth()( CSSModules( App, styles ) );

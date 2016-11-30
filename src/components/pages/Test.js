@@ -3,7 +3,7 @@ import Title from 'react-title-component';
 import Markdown from 'react-markdown';
 import mdAbout from './About.md';
 
-import FeatureBar from "../FeatureBar"
+import FeatureBar from "../FeatureBar/FeatureBar"
 
 import { ScrollContainer } from 'react-router-scroll';
 import ScrollableContent from "../ScrollableContent"

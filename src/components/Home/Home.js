@@ -1,11 +1,14 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
+import CSSModules from 'react-css-modules';
 
 import FullWidthSection from "../FullWidthSection"
 import HomeFeature from "./HomeFeature"
-import Footer from "../Footer"
+import Footer from "../Footer/Footer"
 import {Grid, Row, Col} from 'react-flexbox-grid';
+
+import styles from "./styles.css"
 
 class Home extends Component {
   constructor(props, context) {
@@ -37,15 +40,15 @@ class Home extends Component {
               The best strat roulette for Overwatch their is, not even sure if any others exist!
             </p>
             <p>
-              To start rolling the dice or roulette ball thingy click on <Link className="simple-link" to="/maps">Maps</Link>
+              To start rolling the dice or roulette ball thingy click on <Link styleName="link" to="/maps">Maps</Link>
             </p>
               <p>
-                  Don't know what Strat Roulette is. Neither did I, <Link className="simple-link" to="/about">click here</Link> to find out more.
+                  Don't know what Strat Roulette is. Neither did I, <Link styleName="link" to="/about">click here</Link> to find out more.
               </p>
           </FullWidthSection>
 
             <div style={styles.container}>
-                <Grid className="grid" style={styles.gridOverride}>
+                <Grid styleName="grid" style={styles.gridOverride}>
                     <Row>
                         <Col xs={12} sm={12} md={4} lg={4}>
                             <HomeFeature
@@ -73,7 +76,7 @@ class Home extends Component {
             </div>
 
 
-          <div className="textAlignCenter containerPadding" >
+          <div styleName="root" >
             <p>
               Want to make a donation?
             </p>
@@ -86,4 +89,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default CSSModules( Home, styles );

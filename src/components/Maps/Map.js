@@ -1,7 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
+import CSSModules from 'react-css-modules';
 import {Card, CardTitle, CardHeader, CardActions, CardMedia} from "material-ui/Card"
 import FlatButton from "material-ui/FlatButton"
+
+import styles from "./styles.css"
 
 const cardTitleStyle = {
    fontSize: 20,
@@ -26,7 +29,7 @@ class Map extends Component {
         let map = this.props.map;
 
     return (
-        <Card className="card">
+        <Card styleName="card">
             <CardMedia>
                 <Link to={"/maps/" + map.name}>
                     <img src={map.image} />
@@ -41,5 +44,5 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default CSSModules(Map, styles);
 

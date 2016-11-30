@@ -1,8 +1,9 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
 
 import AppBar from 'material-ui/AppBar';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-import './FeatureAppBar.css';
+import styles from './styles.css';
 
 const FeatureAppBar = React.createClass({
 
@@ -28,6 +29,16 @@ const FeatureAppBar = React.createClass({
                 transition: 'opacity 450ms',
                 fontWeight: 300,
             },
+            appBar: {
+                position: 'fixed',
+                height: this.props.appBarHeight,
+                transition: 'box-shadow 450ms, all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+                backgroundColor: this.props.muiTheme.palette.primary1Color
+            },
+            root: {
+                backgroundColor: this.props.muiTheme.palette.primary1Color,
+                height: this.props.containerHeight
+            }
         };
     },
 
@@ -38,33 +49,30 @@ const FeatureAppBar = React.createClass({
     },
 
     render() {
-        const styles = this.getStyles();
+        const inlineStyles = this.getStyles();
         let zDepth = this.state.zDepth;
 
         return (
-            <div style={{backgroundColor: this.props.muiTheme.palette.primary1Color, height: this.props.containerHeight}} ref="elementToFire">
+            <div style={inlineStyles.root} ref="elementToFire">
                 <AppBar
-                    style={{position: 'fixed', height: this.props.appBarHeight,
-                        transition: 'box-shadow 450ms, all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-                        backgroundColor: this.props.muiTheme.palette.primary1Color
-                    }}
+                    style={inlineStyles.appBar}
                     zDepth={zDepth}
                     onLeftIconButtonTouchTap={this.onMenuClick}
                     title={
                         <div
-                            style={styles.title}
+                            style={inlineStyles.title}
                             ref={el => { this.titleEl = el; }}>
                             {this.props.title}
                         </div>
                     }
                 />
-                <div className="feature">
-                    <div className="feature-image-container">
+                <div styleName="root">
+                    <div styleName="image">
                         <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} />
                     </div>
-                    <div className="feature-title-container" >
-                        <h1 className="feature-title">OVERWATCH</h1>
-                        <h2 className="feature-subtitle">Strat Roulette</h2>
+                    <div styleName="title" >
+                        <h1>OVERWATCH</h1>
+                        <h2>Strat Roulette</h2>
                     </div>
                 </div>
             </div>
@@ -83,5 +91,4 @@ const FeatureAppBar = React.createClass({
 
 });
 
-
-export default muiThemeable()(FeatureAppBar);
+export default muiThemeable()( CSSModules(FeatureAppBar, styles) );

@@ -1,5 +1,7 @@
 var path = require('path');
 var autoprefixer = require('autoprefixer');
+var postcssUtilities = require('postcss-utilities');
+var precss = require('precss');
 var webpack = require('webpack');
 var findCacheDir = require('find-cache-dir');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -116,13 +118,11 @@ module.exports = {
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.css$/,
-        loader: 'style!css?importLoaders=1!postcss',
-        exclude: /flexboxgrid/, // so we have to exclude it
-      },
-      {
-          test: /\.css$/,
-          loader: 'style!css?modules',
-          include: /flexboxgrid/,
+        loaders: [
+            'style',
+            'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'postcss'
+            ]
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -168,6 +168,8 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+      postcssUtilities,
+      precss
     ];
   },
   plugins: [

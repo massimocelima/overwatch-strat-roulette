@@ -1,0 +1,21 @@
+.root {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+a.link {
+  color: #039be5;
+  text-decoration: underline;
+}
+a.link:hover {
+  color: #1976D2;
+  text-decoration: underline;
+}
+.grid {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 1248px;
+  margin-right: auto;
+  margin-left: auto;
+}

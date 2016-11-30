@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
-import Markdown from 'react-markdown';
 import mdAbout from './About.md';
 
-import FeatureBar from "../FeatureBar"
+import FeatureBar from "../FeatureBar/FeatureBar"
+import AppMarkdown from "../AppMarkdown/AppMarkdown"
 
 
 class About extends Component {
@@ -13,14 +13,10 @@ class About extends Component {
 
   render() {
     return (
-        <div style={{backgroundColor: 'white'}}>
+        <div>
             <Title render={(previousTitle) => `About - ${previousTitle}`} />
             <FeatureBar title="About" />
-            <div className="content" style={{margin: '28px 48px'}} >
-                <div className="markdown-body">
-                    <Markdown source={mdAbout} />
-                </div>
-            </div>
+            <AppMarkdown source={mdAbout} />
         </div>
     );
   }
