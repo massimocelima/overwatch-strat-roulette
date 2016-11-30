@@ -1,3 +1,5 @@
 :global(:root) {
     --primary-color: #333;
 }
+
+/* just add color: var(--primary-color); to reference this variable

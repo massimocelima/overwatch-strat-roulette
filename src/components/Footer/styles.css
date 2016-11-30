@@ -2,12 +2,12 @@
   background-color: #212121;
   text-align: center;
   width: 100%;
-  p {
-    margin: 0 auto;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.54);
-    maxWidth: 356px;
-  }
+}
+.root p {
+  margin: 0 auto;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.54);
+  maxWidth: 356px;
 }
 .link {
   color: rgba(255, 255, 255, 0.87);
