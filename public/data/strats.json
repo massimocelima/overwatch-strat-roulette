@@ -1,0 +1,56 @@
+{
+  "strats": [
+    {
+      "map": "TEMPLE OF ANUBIS",
+      "name": "ONLY FOR ANUBIS!",
+      "description": "Just a test strat only for TEMPLE OF ANUBIS.",
+      "createBy": "me",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "HANAMURA",
+      "name": "ONLY FOR HANAMURA!",
+      "description": "Just a test strat only for HANAMURA.",
+      "createBy": "someone-else",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "ALL",
+      "name": "Is That You, John Wayne?",
+      "description": "One member volunteers to motivate the rest of the team in his best Gunny impersonation. If your drill sergeant is alive at the end of the round, another teammate (preferably the one with the lowest amount of kills, Pvt Pyle) has to kill him.",
+      "createBy": "me again",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "ALL",
+      "name": "Neymar Jr",
+      "description": "Your team plays a normal round, but any player hit by enemy damage performs a soccer flop the second they are hit, and must stay in position and defend themselves until the end of the round. If you are killed after flopping, promptly plead your case to the nearby referee to card the offender by accusing the enemy player of being a hacker in chat.",
+      "createBy": "you",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "ALL",
+      "name": "Mom, Get The Camera!",
+      "description": "For one round, bind your screenshot key to your LMB button and fire whenever you normally would. For bonus points, compile these images into a GIF, WEBM or YouTube video.",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "ALL",
+      "name": "Corey & Trevor",
+      "description": "The two bottom players on the scoreboard become Corey & Trevor, who can only buy smokes and body armor. Their job is to charge into sites or follow your top fragger (Ricky) and protect him from dying.",
+      "categories": ["A", "B"]
+    },
+    {
+      "map": "ALL",
+      "name": "UK RUSH",
+      "description": "Rush a choke point one by one.",
+      "categories": ["A"]
+    },
+    {
+      "map": "ALL",
+      "name": "Max Pain",
+      "description": "Duel Berettas only!",
+      "categories": ["B"]
+    }
+  ]
+}

@@ -31,13 +31,13 @@ class Map extends Component {
     return (
         <Card styleName="card">
             <CardMedia>
-                <Link to={"/maps/" + map.name}>
+                <Link to={"/strat/" + map.name}>
                     <img src={map.image} />
                 </Link>
             </CardMedia>
             <CardTitle title={map.name} subtitle={map.description} titleStyle={cardTitleStyle} subtitleStyle={cardSubtitleStyle} />
             <CardActions>
-                <FlatButton label="Let's Go!" primary={true} href={"/maps/" + map.name} />
+                <FlatButton label="Let's Go!" primary={true} href={"/strat/" + map.name} />
             </CardActions>
         </Card>
     );

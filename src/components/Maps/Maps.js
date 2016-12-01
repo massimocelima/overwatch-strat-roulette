@@ -28,7 +28,7 @@ class Maps extends Component {
     };
 
     componentDidMount() {
-        fetch("data/maps.json")
+        fetch("/data/maps.json")
             .then( response => response.json() )
             .then( json => this.setState( { maps: json.maps } ) )
     };
