@@ -6,15 +6,17 @@ import CSSModules from 'react-css-modules';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import spacing from 'material-ui/styles/spacing';
-import {darkWhite, lightWhite, grey900} from 'material-ui/styles/colors';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
-
 import AppDrawer from './components/AppDrawer/AppDrawer';
+
 import ScrollableContent from "./components/ScrollableContent"
 import FeatureAppBar from "./components/FeatureAppBar/FeatureAppBar"
+import LoginButton from './components/FeatureAppBar/LoginButton';
+import LoggedButton from './components/FeatureAppBar/LoggedButton';
 
 import styles from './App.css';
+
+import { firebaseAuth } from './helpers/constants'
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -26,6 +28,7 @@ const muiTheme = getMuiTheme({
         color: "#0288d1"
     },
 });
+
 
 // app bar background #0288d1
 // primary #039be5
@@ -39,7 +42,27 @@ class App extends Component {
 
     state = {
         navDrawerOpen: false,
+        authenticated: false
     };
+
+    componentDidMount () {
+        this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    authed: true,
+                    loading: false,
+                })
+            } else {
+                this.setState({
+                    loading: false
+                })
+            }
+        })
+    }
+
+    componentWillUnmount () {
+        this.removeListener()
+    }
 
     handleTouchTapLeftIconButton = () => {
         this.setState({
@@ -71,7 +94,15 @@ class App extends Component {
             //    scrolled: true
             //});
         }
-    }
+    };
+
+    handleSignOut() {
+        alert("Signed Out");
+    };
+
+    handleSignIn() {
+        alert("Signed In");
+    };
 
     //.3s cubic-bezier(0.4,0.0,0.2,1);
 
@@ -134,6 +165,7 @@ class App extends Component {
                         containerHeight={410}
                         appBarHeight={48}
                         title="Overwatch Strat Roulette"
+                        authenticated={this.state.authenticated}
                     />
                     :
                     <AppBar
@@ -143,6 +175,7 @@ class App extends Component {
                             <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} className={styles.logo} />
                             Overwatch Strat Roulette
                         </div>}
+                        iconElementRight={this.state.authenticated ? <LoggedButton handleSignOut={this.handleSignOut} /> : <LoginButton handleSignIn={this.handleSignIn}  />}
                         titleStyle={{cursor: 'pointer', flex: ''}}
                         style={inlineStyles.appBar}
                         iconStyleLeft={{display: 'flex', cursor: 'pointer'}}

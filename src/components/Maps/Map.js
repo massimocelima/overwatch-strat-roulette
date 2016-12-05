@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
+import Router, {Link} from 'react-router';
 import CSSModules from 'react-css-modules';
 import {Card, CardTitle, CardHeader, CardActions, CardMedia} from "material-ui/Card"
 import FlatButton from "material-ui/FlatButton"
@@ -16,12 +16,26 @@ const cardSubtitleStyle = {
 };
 
 class Map extends Component {
-  constructor(props, context) {
+    constructor(props, context) {
     super(props, context);
-  }
+        this.handleTouchStart.bind(this);
+    };
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    }
 
     static propTypes = {
         map: PropTypes.object.isRequired
+    };
+
+    handleTouchStart(mapName) {
+        const path = 'strat/' + mapName;
+        this.context.router.push(path);
+
+        //this.context.router.push({ pathname, query, state })
+        //this.context.router.replace(path)
+        //this.context.router.replace({ pathname, query, state })
     };
 
     render() {
@@ -37,7 +51,7 @@ class Map extends Component {
             </CardMedia>
             <CardTitle title={map.name} subtitle={map.description} titleStyle={cardTitleStyle} subtitleStyle={cardSubtitleStyle} />
             <CardActions>
-                <FlatButton label="Let's Go!" primary={true} href={"/strat/" + map.name} />
+                <FlatButton label="Let's Go!" primary={true} onMouseDown={() => this.handleTouchStart(map.name)} />
             </CardActions>
         </Card>
     );

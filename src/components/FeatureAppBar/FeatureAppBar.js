@@ -1,17 +1,28 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import CSSModules from 'react-css-modules';
 
 import AppBar from 'material-ui/AppBar';
 import muiThemeable from 'material-ui/styles/muiThemeable';
+
+import LoginButton from './LoginButton';
+import LoggedButton from './LoggedButton';
+import { logout } from '../../helpers/auth'
+
 import styles from './styles.css';
 
+
 const FeatureAppBar = React.createClass({
+
+    contextTypes:{
+        router: React.PropTypes.object.isRequired
+    },
 
     propTypes: {
         onMenuClick: React.PropTypes.func,
         appBarHeight: React.PropTypes.number.isRequired,
         containerHeight: React.PropTypes.number.isRequired,
         title: React.PropTypes.string.isRequired,
+        authenticated: React.PropTypes.bool.isRequired,
     },
 
     componentDidMount: function() {
@@ -19,6 +30,24 @@ const FeatureAppBar = React.createClass({
     },
     componentWillUnmount: function() {
         document.removeEventListener("scroll", this.handleScroll);
+    },
+
+    isHome() {
+        var currentLocation = this.props.location.pathname;
+        return currentLocation == "/" || currentLocation == "/home";
+    },
+
+    handleSignOut() {
+        this.context.router.push("home");
+        logout();
+    },
+
+    handleSignIn() {
+        this.context.router.push("login");
+    },
+
+    handleRegister() {
+        this.context.router.push("register");
     },
 
     getStyles() {
@@ -65,6 +94,9 @@ const FeatureAppBar = React.createClass({
                             {this.props.title}
                         </div>
                     }
+                    iconElementRight={this.state.authenticated ?
+                        <LoggedButton handleSignOut={this.handleSignOut} /> :
+                        <LoginButton handleRegister={this.handleRegister} handleSignIn={this.handleSignIn}  />}
                 />
                 <div styleName="root">
                     <div styleName="image">

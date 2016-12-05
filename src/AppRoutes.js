@@ -13,6 +13,8 @@ import Contact from './components/pages/Contact';
 import Strats  from './components/Strat/Strats';
 import Strat  from './components/Strat/Strat';
 import About from './components/pages/About';
+import Login from './components/Authentication/Login';
+import Register from './components/Authentication/Register';
 import TestPage from './components/pages/Test';
 
 const NotFound = () => (
@@ -37,6 +39,8 @@ const AppRoutes = (
     <Route path="contact" component={Contact} />
       <Route path="about" component={About} />
       <Route path="testpage" component={TestPage} />
+      <Route path="login" component={Login} />
+      <Route path="register" component={Register} />
     <Route path='*' component={NotFound} />
   </Route>
 );
