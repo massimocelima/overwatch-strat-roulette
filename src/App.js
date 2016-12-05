@@ -24,7 +24,7 @@ const muiTheme = getMuiTheme({
         canvasColor: "#ffffff"
     },
     appBar: {
-        height: 50,
+        height: 60,
         color: "#0288d1"
     },
 });
@@ -163,7 +163,7 @@ class App extends Component {
                     <FeatureAppBar
                         onMenuClick={handleTouchTapLeftIconButton}
                         containerHeight={410}
-                        appBarHeight={48}
+                        appBarHeight={60}
                         title="Overwatch Strat Roulette"
                         authenticated={this.state.authenticated}
                     />
