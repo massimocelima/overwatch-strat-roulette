@@ -38,6 +38,7 @@ class Map extends Component {
         //this.context.router.replace({ pathname, query, state })
     };
 
+
     render() {
 
         let map = this.props.map;
@@ -51,7 +52,7 @@ class Map extends Component {
             </CardMedia>
             <CardTitle title={map.name} subtitle={map.description} titleStyle={cardTitleStyle} subtitleStyle={cardSubtitleStyle} />
             <CardActions>
-                <FlatButton label="Let's Go!" primary={true} onMouseDown={() => this.handleTouchStart(map.name)} />
+                <FlatButton label="Let's Go!" primary={true} onTouchTap={() => this.handleTouchStart(map.name)} />
             </CardActions>
         </Card>
     );

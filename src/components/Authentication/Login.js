@@ -8,7 +8,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import CSSModules from 'react-css-modules';
 
 import { login } from '../../helpers/auth'
-import LoadingSpinner from '../Authentication/LoadingSpinner';
+import LoadingSpinner from '../LoadingSpinner';
 
 import styles from "./styles.css"
 
@@ -50,7 +50,7 @@ class Login extends Component {
     render () {
 
         return (
-            <div style={{position: "relative", height: "100%"}}>
+            <div className={styles.grid}>
                 <Paper zDepth={2} rounded={true} style={{
                     maxWidth: 600,
                     width: "100%",
@@ -61,26 +61,27 @@ class Login extends Component {
                     padding: 20
                 }} >
                     <LoadingSpinner show={this.state.loading} />
-                    <div>
-                        <h2><img src={process.env.PUBLIC_URL + '/img/logo.png'} className={styles.logo} width={32} height={32} /> Overwatch Strat Roulette</h2>
+
+
+                    <div className={styles.titleContainer}>
+                        <div className={styles.title}>
+                            <img src={process.env.PUBLIC_URL + '/img/logo.png'} className={styles.logo} width={48} height={48} />
+                            <span>Overwatch Strat Roulette</span>
+                        </div>
                     </div>
-                    <form onSubmit={this.handleSubmit} style={{position: "relative"}}>
+
+                    <form onSubmit={this.handleSubmit} className={styles.form}>
                         {this.state.errorMessage != null && this.state.errorMessage != "" &&
                             <div>
                                 {this.state.errorMessage.toString()}
                             </div>
                         }
-                        <div>
-                            <TextField floatingLabelText="Email" style={{width: "100%"}}
-                                       floatingLabelStyle={{color:"#BBBBBB"}}
-                                       onChange={this._handleEmailChanged}/>
-                        </div>
-                        <div>
-                            <TextField floatingLabelText="Password" style={{width: "100%"}}
-                                       onChange={this._handlePasswordChanged}
-                                       type="password"/>
-                        </div>
-                        <RaisedButton style={{marginTop: 10}} primary={true} onMouseDown={this.handleSubmit} label="Sign In" />
+                        <TextField floatingLabelText="Email" style={{width: "100%"}}
+                                   onChange={this._handleEmailChanged}/>
+                        <TextField floatingLabelText="Password" style={{width: "100%"}}
+                                   onChange={this._handlePasswordChanged}
+                                   type="password"/>
+                        <RaisedButton style={{marginTop: 30}} primary={true} onTouchTap={this.handleSubmit} label="Sign In" />
                     </form>
                 </Paper>
             </div>

@@ -31,6 +31,7 @@ const muiTheme = getMuiTheme({
     textField: {
         focusColor: "#039be5",
         borderColor: "#888888",
+        floatingLabelColor: "#888888",
     }
 });
 

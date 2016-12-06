@@ -30,8 +30,8 @@ class LoginButton extends Component {
             <div>
             {!authenticated ?
                 <div>
-                    <RaisedButton primary={true} {...rest} onMouseDown={handleRegister} buttonStyle={{borderRadius: 0}} style={{marginRight: 10}} label="Register" />
-                    <RaisedButton primary={true} {...rest} onMouseDown={handleSignIn} buttonStyle={{borderRadius: 0}} label="Login" />
+                    <RaisedButton primary={true} {...rest} onTouchTap={handleRegister} buttonStyle={{borderRadius: 0}} style={{marginRight: 10}} label="Register" />
+                    <RaisedButton primary={true} {...rest} onTouchTap={handleSignIn} buttonStyle={{borderRadius: 0}} label="Login" />
                 </div>
                 :
                 <IconMenu
