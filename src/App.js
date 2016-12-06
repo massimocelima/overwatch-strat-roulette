@@ -7,6 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
+
 import AppDrawer from './components/AppDrawer/AppDrawer';
 
 import ScrollableContent from "./components/ScrollableContent"
@@ -219,7 +220,6 @@ class App extends Component {
                         {this.props.children}
                     </ScrollableContent>
                 }
-
             </div>
         </MuiThemeProvider>
     );

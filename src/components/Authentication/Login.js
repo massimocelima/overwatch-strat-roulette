@@ -15,7 +15,10 @@ import styles from "./styles.css"
 class Login extends Component {
 
     state = {
-        loading: false
+        loading: false,
+        email: "",
+        password: "",
+        errorMessage: ""
     }
 
     handleSubmit = () => {
@@ -25,12 +28,10 @@ class Login extends Component {
         //e.preventDefault()
         login(this.state.email, this.state.password)
             .then((saveUser) => {
-                alert("Success: " + saveUser.email)
                 this.setState({ loading: false });
             })
             .catch((error) => {
-                alert(error)
-                this.setState({ loading: false });
+                this.setState({ loading: false, errorMessage: error });
             });
     }
 
@@ -64,13 +65,18 @@ class Login extends Component {
                         <h2><img src={process.env.PUBLIC_URL + '/img/logo.png'} className={styles.logo} width={32} height={32} /> Overwatch Strat Roulette</h2>
                     </div>
                     <form onSubmit={this.handleSubmit} style={{position: "relative"}}>
+                        {this.state.errorMessage != null && this.state.errorMessage != "" &&
+                            <div>
+                                {this.state.errorMessage.toString()}
+                            </div>
+                        }
                         <div>
                             <TextField floatingLabelText="Email" style={{width: "100%"}}
                                        onChange={this._handleEmailChanged}/>
                         </div>
                         <div>
                             <TextField floatingLabelText="Password" type="password" style={{width: "100%"}}
-                                       onChange={this._handlePasswordChanged} />
+                                       onChange={this._handlePasswordChanged}/>
                         </div>
                         <RaisedButton style={{marginTop: 10}} primary={true} onMouseDown={this.handleSubmit} label="Sign In" />
                     </form>
