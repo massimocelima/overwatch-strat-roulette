@@ -1,0 +1,11 @@
+.grid {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 1248px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.field {
+    margin-bottom: 10px;
+    width: 100%;
+}

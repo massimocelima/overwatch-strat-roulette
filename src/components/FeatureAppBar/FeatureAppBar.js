@@ -5,7 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import LoginButton from './LoginButton';
-import LoggedButton from './LoggedButton';
 import { logout } from '../../helpers/auth'
 
 import styles from './styles.css';
@@ -38,7 +37,7 @@ const FeatureAppBar = React.createClass({
     },
 
     handleSignOut() {
-        this.context.router.push("home");
+        this.context.router.push("/");
         logout();
     },
 
@@ -94,9 +93,18 @@ const FeatureAppBar = React.createClass({
                             {this.props.title}
                         </div>
                     }
-                    iconElementRight={this.state.authenticated ?
-                        <LoggedButton handleSignOut={this.handleSignOut} /> :
-                        <LoginButton handleRegister={this.handleRegister} handleSignIn={this.handleSignIn}  />}
+                    iconStyleRight={{
+                        marginTop: 0,
+                        display: "flex",
+                        alignItems: "center"
+                    }}
+                    iconElementRight={
+                        <LoginButton
+                            handleRegister={this.handleRegister}
+                            handleSignIn={this.handleSignIn}
+                            handleSignOut={this.handleSignOut}
+                            authenticated={this.props.authenticated} />
+                    }
                 />
                 <div styleName="root">
                     <div styleName="image">

@@ -12,7 +12,6 @@ import AppDrawer from './components/AppDrawer/AppDrawer';
 import ScrollableContent from "./components/ScrollableContent"
 import FeatureAppBar from "./components/FeatureAppBar/FeatureAppBar"
 import LoginButton from './components/FeatureAppBar/LoginButton';
-import LoggedButton from './components/FeatureAppBar/LoggedButton';
 
 import styles from './App.css';
 
@@ -42,18 +41,20 @@ class App extends Component {
 
     state = {
         navDrawerOpen: false,
-        authenticated: false
+        authenticated: false,
+        loading: false
     };
 
     componentDidMount () {
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({
-                    authed: true,
+                    authenticated: true,
                     loading: false,
                 })
             } else {
                 this.setState({
+                    authenticated: false,
                     loading: false
                 })
             }
@@ -104,6 +105,9 @@ class App extends Component {
         alert("Signed In");
     };
 
+    handleRegister() {
+        alert("Register");
+    };
     //.3s cubic-bezier(0.4,0.0,0.2,1);
 
     getStyles() {
@@ -175,7 +179,18 @@ class App extends Component {
                             <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} className={styles.logo} />
                             Overwatch Strat Roulette
                         </div>}
-                        iconElementRight={this.state.authenticated ? <LoggedButton handleSignOut={this.handleSignOut} /> : <LoginButton handleSignIn={this.handleSignIn}  />}
+                        iconElementRight={
+                            <LoginButton
+                                handleRegister={this.handleRegister}
+                                handleSignIn={this.handleSignIn}
+                                handleSignOut={this.handleSignOut}
+                                authenticated={this.state.authenticated} />
+                        }
+                        iconStyleRight={{
+                            marginTop: 0,
+                            display: "flex",
+                            alignItems: "center"
+                        }}
                         titleStyle={{cursor: 'pointer', flex: ''}}
                         style={inlineStyles.appBar}
                         iconStyleLeft={{display: 'flex', cursor: 'pointer'}}

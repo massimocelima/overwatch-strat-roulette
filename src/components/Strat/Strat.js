@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
 import CSSModules from 'react-css-modules';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import fetch from 'isomorphic-fetch';
 import RaisedButton from "material-ui/RaisedButton";
 import {Grid, Row, Col} from 'react-flexbox-grid';
@@ -12,7 +13,7 @@ import styles from "./styles.css"
 class Strat extends Component {
     constructor(props, context) {
         super(props, context);
-        this.handleTouchTap = this.handleTouchTap.bind(this)
+        //this.handleTouchTap = this.handleTouchTap.bind(this)
     }
 
     state = {
@@ -20,6 +21,11 @@ class Strat extends Component {
         stratA: null,
         stratB: null
     };
+    handleTouchTap = ev => this.roll();
+
+    //handleTouchTap() {
+    //    this.roll();
+    //}
 
     componentDidMount() {
         fetch("/data/strats.json")
@@ -29,7 +35,7 @@ class Strat extends Component {
     };
 
     filter(data) {
-        return data.filter(x => x.map == "ALL" || x.map == this.props.params.map);
+        return data.filter(x => x.map === "ALL" || x.map === this.props.params.map);
     };
 
     roll() {
@@ -49,10 +55,6 @@ class Strat extends Component {
         return Math.floor((Math.random() * max) + 0);
     };
 
-    handleTouchTap() {
-        this.roll();
-    }
-
     render() {
         const mapName = this.props.params.map;
         const stratA = this.state.stratA;
@@ -68,14 +70,27 @@ class Strat extends Component {
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={12}>
                             <h1>{mapName}</h1>
-                            <div>
-                                <h2>Team A</h2>
-                                <h3>{stratA.name}</h3>
-                                <p>{stratA.description}</p>
+                            <div style={{minHeight: 300, position: "relative"}}>
+                                <ReactCSSTransitionGroup
+                                    transitionName={styles}
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={500}
+                                    transitionEnterTimeout={500}
+                                    transitionLeaveTimeout={300}
+                                    transitionEnter={true}
+                                    transitionLeave={true}>
 
-                                <h2>Team B</h2>
-                                <h3>{stratB.name}</h3>
-                                <p>{stratB.description}</p>
+                                    <div key={stratA.name} styleName="page">
+                                        <h2>Team A</h2>
+                                        <h3>{stratA.name}</h3>
+                                        <p>{stratA.description}</p>
+
+                                        <h2>Team B</h2>
+                                        <h3>{stratB.name}</h3>
+                                        <p>{stratB.description}</p>
+                                    </div>
+                                    <div></div>
+                                </ReactCSSTransitionGroup>
 
                                 <RaisedButton label="Role" primary={true} onTouchTap={this.handleTouchTap}></RaisedButton>
                             </div>

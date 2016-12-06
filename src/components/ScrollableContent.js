@@ -57,7 +57,9 @@ class ScrollableContent extends Component {
         >
             <div style={styles.root}>
               {this.props.children}
-              <Footer />
+                {false &&
+                    <Footer />
+                }
             </div>
         </ScrollContainer>
     );
