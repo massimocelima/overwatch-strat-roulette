@@ -72,11 +72,13 @@ class Login extends Component {
                         }
                         <div>
                             <TextField floatingLabelText="Email" style={{width: "100%"}}
+                                       floatingLabelStyle={{color:"#BBBBBB"}}
                                        onChange={this._handleEmailChanged}/>
                         </div>
                         <div>
-                            <TextField floatingLabelText="Password" type="password" style={{width: "100%"}}
-                                       onChange={this._handlePasswordChanged}/>
+                            <TextField floatingLabelText="Password" style={{width: "100%"}}
+                                       onChange={this._handlePasswordChanged}
+                                       type="password"/>
                         </div>
                         <RaisedButton style={{marginTop: 10}} primary={true} onMouseDown={this.handleSubmit} label="Sign In" />
                     </form>

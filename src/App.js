@@ -19,6 +19,7 @@ import styles from './App.css';
 import { firebaseAuth } from './helpers/constants'
 
 const muiTheme = getMuiTheme({
+    fontFamily: 'Roboto, sans-serif',
     palette: {
         primary1Color: "#039be5",
         canvasColor: "#ffffff"
@@ -27,6 +28,10 @@ const muiTheme = getMuiTheme({
         height: 60,
         color: "#0288d1"
     },
+    textField: {
+        focusColor: "#039be5",
+        borderColor: "#888888",
+    }
 });
 
 

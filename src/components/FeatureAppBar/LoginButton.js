@@ -37,10 +37,10 @@ class LoginButton extends Component {
                 <IconMenu
                     {...rest}
                     iconButtonElement={
-                        <IconButton><MoreVertIcon /></IconButton>
+                        <IconButton><MoreVertIcon color="white" /></IconButton>
                     }
                     targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                    anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
                     style={{color: "white"}}
                 >
                     <MenuItem primaryText="Sign out" onTouchTap={handleSignOut}/>
