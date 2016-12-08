@@ -191,7 +191,6 @@ class App extends Component {
                         </div>}
                         iconElementRight={
                             <LoginButton
-                                handleRegister={this.handleRegister}
                                 handleSignIn={this.handleSignIn}
                                 handleSignOut={this.handleSignOut}
                                 authenticated={this.state.authenticated} />

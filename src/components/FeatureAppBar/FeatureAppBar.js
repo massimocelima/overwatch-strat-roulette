@@ -45,10 +45,6 @@ const FeatureAppBar = React.createClass({
         this.context.router.push("login");
     },
 
-    handleRegister() {
-        this.context.router.push("register");
-    },
-
     getStyles() {
         let opacity = this.state.zDepth ? 1 : 0;
         return {
@@ -100,7 +96,6 @@ const FeatureAppBar = React.createClass({
                     }}
                     iconElementRight={
                         <LoginButton
-                            handleRegister={this.handleRegister}
                             handleSignIn={this.handleSignIn}
                             handleSignOut={this.handleSignOut}
                             authenticated={this.props.authenticated} />

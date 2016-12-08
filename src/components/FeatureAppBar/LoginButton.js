@@ -13,15 +13,13 @@ class LoginButton extends Component {
 
     static propTypes = {
         handleSignIn: PropTypes.func.isRequired,
-        handleRegister: PropTypes.func.isRequired,
-        authenticated: React.PropTypes.bool.isRequired,
         handleSignOut: PropTypes.func.isRequired,
+        authenticated: React.PropTypes.bool.isRequired,
     };
 
     render() {
         const {
             handleSignIn,
-            handleRegister,
             handleSignOut,
             authenticated,
             muiTheme,
@@ -30,7 +28,6 @@ class LoginButton extends Component {
             <div>
             {!authenticated ?
                 <div>
-                    <RaisedButton primary={true} {...rest} onTouchTap={handleRegister} buttonStyle={{borderRadius: 0}} style={{marginRight: 10}} label="Register" />
                     <RaisedButton primary={true} {...rest} onTouchTap={handleSignIn} buttonStyle={{borderRadius: 0}} label="Login" />
                 </div>
                 :
