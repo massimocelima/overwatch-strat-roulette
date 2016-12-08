@@ -1,0 +1,57 @@
+
+.callout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 0 0 24px;
+  margin: 0 0 24px 0;
+  min-height: 48px;
+}
+.callout .callout-body {
+  margin-right: 24px;
+  position: relative;
+  padding: 12px 0;
+  line-height: 20px;
+  font-size: 14px;
+}
+.callout-icon {
+  position: absolute;
+  left: 0;
+  top: 11px;
+  margin-right: 12px;
+  display: inline-block;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.callout-message {
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: middle;
+}
+.callout-details {
+  font-weight: 400;
+  display: block;
+  opacity: .7;
+}
+.callout-actions {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.callout.warning {
+  background-color: #fbe9e7;
+  color: #d50000;
+}
+.callout.warning .callout-icon {
+  color: #ff5252;
+}

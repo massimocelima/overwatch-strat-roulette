@@ -9,6 +9,9 @@ import CSSModules from 'react-css-modules';
 
 import { login } from '../../helpers/auth'
 import LoadingSpinner from '../LoadingSpinner';
+import Callout from '../Callout/Callout';
+
+import { firebaseAuth, firebaseAuthUi, firebaseAuthUiConfig } from '../../helpers/constants'
 
 import styles from "./styles.css"
 
@@ -19,6 +22,14 @@ class Login extends Component {
         email: "",
         password: "",
         errorMessage: ""
+    }
+
+    componentDidMount () {
+        firebaseAuthUi.start('#firebaseui-auth', firebaseAuthUiConfig);
+    }
+
+    componentWillUnmount () {
+        firebaseAuthUi.reset();
     }
 
     handleSubmit = () => {
@@ -70,11 +81,12 @@ class Login extends Component {
                         </div>
                     </div>
 
+                    <div id="firebaseui-auth"></div>
+
                     <form onSubmit={this.handleSubmit} className={styles.form}>
                         {this.state.errorMessage != null && this.state.errorMessage != "" &&
-                            <div>
-                                {this.state.errorMessage.toString()}
-                            </div>
+                            <Callout message={this.state.errorMessage.toString()} warning={true}>
+                            </Callout>
                         }
                         <TextField floatingLabelText="Email" style={{width: "100%"}}
                                    onChange={this._handleEmailChanged}/>

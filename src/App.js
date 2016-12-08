@@ -16,7 +16,7 @@ import LoginButton from './components/FeatureAppBar/LoginButton';
 
 import styles from './App.css';
 
-import { firebaseAuth } from './helpers/constants'
+import { firebaseAuth, firebaseAuthUi, firebaseAuthUiConfig } from './helpers/constants'
 
 const muiTheme = getMuiTheme({
     fontFamily: 'Roboto, sans-serif',
@@ -49,11 +49,14 @@ class App extends Component {
     state = {
         navDrawerOpen: false,
         authenticated: false,
-        loading: false
+        loading: false,
+        photoURL: null,
+        displayName: null,
+        email: null,
     };
 
     componentDidMount () {
-        this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+        this.removeListener = firebaseAuth.onAuthStateChanged((user) => {
             if (user) {
                 this.setState({
                     authenticated: true,
@@ -65,7 +68,7 @@ class App extends Component {
                     loading: false
                 })
             }
-        })
+        });
     }
 
     componentWillUnmount () {
