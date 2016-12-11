@@ -25,7 +25,7 @@ const enhancer = compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const store = createStore(reducer, initialState, applyMiddleware(thunkMiddleware) );
+const store = createStore(reducer, initialState, enhancer );
 //const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 const history = syncHistoryWithStore(browserHistory, store)
