@@ -7,41 +7,67 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import RaisedButton from 'material-ui/RaisedButton';
+import Avatar from 'material-ui/Avatar';
+import { logout } from '../../helpers/auth'
 
 
 class LoginButton extends Component {
 
+    static contextTypes = {
+        router: PropTypes.object.isRequired
+    };
+
     static propTypes = {
-        handleSignIn: PropTypes.func.isRequired,
-        handleSignOut: PropTypes.func.isRequired,
         authenticated: React.PropTypes.bool.isRequired,
+        user: React.PropTypes.object,
+    };
+
+    handleSignOut = () => {
+        this.context.router.push("/");
+        logout();
+    };
+
+    handleSignIn = () => {
+        this.context.router.push("login");
     };
 
     render() {
         const {
-            handleSignIn,
-            handleSignOut,
             authenticated,
+            user,
             muiTheme,
             ...rest } = this.props;
+
+        let avatar = null;
+        if(authenticated)
+        {
+            if(user.photoURL != null && user.photoURL != "")
+                avatar = <Avatar src={user.photoURL}/>;
+            else
+                avatar = <Avatar>{user.email.substring(0, 1)}</Avatar>;
+        }
+
         return (
             <div>
             {!authenticated ?
                 <div>
-                    <RaisedButton primary={true} {...rest} onTouchTap={handleSignIn} buttonStyle={{borderRadius: 0}} label="Login" />
+                    <RaisedButton primary={true} {...rest} onTouchTap={this.handleSignIn} buttonStyle={{borderRadius: 0}} label="Login" />
                 </div>
                 :
-                <IconMenu
-                    {...rest}
-                    iconButtonElement={
-                        <IconButton><MoreVertIcon color="white" /></IconButton>
-                    }
-                    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                    anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                    style={{color: "white"}}
-                >
-                    <MenuItem primaryText="Sign out" onTouchTap={handleSignOut}/>
-                </IconMenu>
+                <div>
+
+                    <IconMenu
+                        {...rest}
+                        iconButtonElement={
+                            <IconButton style={{padding: 0}}>{avatar}</IconButton>
+                        }
+                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                        anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+                        style={{color: "white"}}
+                    >
+                        <MenuItem primaryText="Sign out" onTouchTap={this.handleSignOut}/>
+                    </IconMenu>
+                </div>
             }
             </div>
         );

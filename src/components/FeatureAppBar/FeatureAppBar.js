@@ -4,16 +4,14 @@ import CSSModules from 'react-css-modules';
 import AppBar from 'material-ui/AppBar';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-import LoginButton from './LoginButton';
-import { logout } from '../../helpers/auth'
+import LoginButtonContainer from '../../containers/LoginButtonContainer'
 
 import styles from './styles.css';
 
-
 const FeatureAppBar = React.createClass({
 
-    contextTypes:{
-        router: React.PropTypes.object.isRequired
+    contextTypes: {
+        router: PropTypes.object.isRequired,
     },
 
     propTypes: {
@@ -21,7 +19,7 @@ const FeatureAppBar = React.createClass({
         appBarHeight: React.PropTypes.number.isRequired,
         containerHeight: React.PropTypes.number.isRequired,
         title: React.PropTypes.string.isRequired,
-        authenticated: React.PropTypes.bool.isRequired,
+        showMenuIconButton: React.PropTypes.bool.isRequired,
     },
 
     componentDidMount: function() {
@@ -34,15 +32,6 @@ const FeatureAppBar = React.createClass({
     isHome() {
         var currentLocation = this.props.location.pathname;
         return currentLocation == "/" || currentLocation == "/home";
-    },
-
-    handleSignOut() {
-        this.context.router.push("/");
-        logout();
-    },
-
-    handleSignIn() {
-        this.context.router.push("login");
     },
 
     getStyles() {
@@ -62,6 +51,21 @@ const FeatureAppBar = React.createClass({
             root: {
                 backgroundColor: this.props.muiTheme.palette.primary1Color,
                 height: this.props.containerHeight
+            },
+            appBarWithShadow: {
+                boxShadow: "0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12),0 1px 8px 0 rgba(0,0,0,0.2)",
+                fontWeight: 300,
+            },
+            titleRoot: {
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                fontWeight: 300
+            },
+            logo:  {
+                width: 32,
+                height: 32,
+                marginRight: 10
             }
         };
     },
@@ -72,44 +76,73 @@ const FeatureAppBar = React.createClass({
         };
     },
 
+    handleTouchTapTitle() {
+        this.context.router.push("/");
+    },
+
     render() {
         const inlineStyles = this.getStyles();
         let zDepth = this.state.zDepth;
 
         return (
-            <div style={inlineStyles.root} ref="elementToFire">
+            <div>
+            { ! this.isHome() ?
                 <AppBar
-                    style={inlineStyles.appBar}
-                    zDepth={zDepth}
-                    onLeftIconButtonTouchTap={this.onMenuClick}
-                    title={
-                        <div
-                            style={inlineStyles.title}
-                            ref={el => { this.titleEl = el; }}>
-                            {this.props.title}
-                        </div>
+                    onLeftIconButtonTouchTap={this.props.onMenuClick}
+                    onTitleTouchTap={this.handleTouchTapTitle}
+                    title={<div style={inlineStyles.titleRoot}>
+                        <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} style={inlineStyles.logo}/>
+                        {this.props.title}
+                    </div>}
+                    iconElementRight={
+                        <LoginButtonContainer />
                     }
                     iconStyleRight={{
                         marginTop: 0,
                         display: "flex",
                         alignItems: "center"
                     }}
-                    iconElementRight={
-                        <LoginButton
-                            handleSignIn={this.handleSignIn}
-                            handleSignOut={this.handleSignOut}
-                            authenticated={this.props.authenticated} />
-                    }
+                    titleStyle={{cursor: 'pointer', flex: ''}}
+                    style={inlineStyles.appBarWithShadow}
+                    iconStyleLeft={{display: 'flex', cursor: 'pointer'}}
+                    showMenuIconButton={this.props.showMenuIconButton}
                 />
-                <div styleName="root">
-                    <div styleName="image">
-                        <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'} />
+                :
+                <div style={inlineStyles.root} ref="elementToFire">
+                    <AppBar
+                        style={inlineStyles.appBar}
+                        zDepth={zDepth}
+                        onLeftIconButtonTouchTap={this.props.onMenuClick}
+                        title={
+                            <div
+                                style={inlineStyles.title}
+                                ref={el => {
+                                    this.titleEl = el;
+                                }}>
+                                {this.props.title}
+                            </div>
+                        }
+                        iconStyleRight={{
+                            marginTop: 0,
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                        iconElementRight={
+                            <LoginButtonContainer />
+                        }
+                    />
+                    <div styleName="root">
+                        <div styleName="image">
+                            <img src={process.env.PUBLIC_URL + '/img/logo_alt.png'}/>
+                        </div>
+                        <div styleName="title">
+                            <h1>OVERWATCH</h1>
+                            <h2>Strat Roulette</h2>
+                        </div>
                     </div>
-                    <div styleName="title" >
-                        <h1>OVERWATCH</h1>
-                        <h2>Strat Roulette</h2>
-                    </div>
+
                 </div>
+            }
             </div>
         );
     },
@@ -127,3 +160,5 @@ const FeatureAppBar = React.createClass({
 });
 
 export default muiThemeable()( CSSModules(FeatureAppBar, styles) );
+
+

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 import Paper from "material-ui/Paper";
 import muiThemeable from 'material-ui/styles/muiThemeable';
@@ -11,8 +11,26 @@ import styles from "./styles.css"
 
 class Login extends Component {
 
+    static contextTypes = {
+        router: PropTypes.object.isRequired
+    };
+
+    handleSignedIn = () => {
+        this.context.router.push("/");
+    };
+
     componentDidMount () {
-        firebaseAuthUi.start('#firebaseui-auth', firebaseAuthUiConfig);
+        let that = this;
+        let config = {
+            ...firebaseAuthUiConfig,
+            callbacks: {
+                signInSuccess: function(user, credential, redirectUrl) {
+                    that.handleSignedIn();
+                    return false;
+                }
+            },
+        }
+        firebaseAuthUi.start('#firebaseui-auth', config);
     }
 
     componentWillUnmount () {
@@ -30,9 +48,9 @@ class Login extends Component {
                     marginTop: 100,
                     left: "50%",
                     transform: "translate(-50%, 0)",
-                    padding: 20
+                    padding: 20,
+                    height: 400
                 }} >
-
                     <div className={styles.titleContainer}>
                         <div className={styles.title}>
                             <img src={process.env.PUBLIC_URL + '/img/logo.png'} className={styles.logo} width={48} height={48} />

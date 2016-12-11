@@ -1,6 +1,16 @@
 import firebase from 'firebase';
 import firebaseui from 'firebaseui';
 
+export const initialState = {
+    auth: {
+        authenticated: false,
+        user: null
+    },
+    drawer: {
+        show: false
+    }
+};
+
 var config = {
     apiKey: "AIzaSyCJiJFA4uNXNgbYpTCMTq2Nt8nPeXZuufk",
     authDomain: "overwatch-strat-roulette.firebaseapp.com",
@@ -18,20 +28,23 @@ export const firebaseAuthUi = new firebaseui.auth.AuthUI(firebaseAuth);
 export const firebaseAuthUiConfig = {
     callbacks: {
         signInSuccess: function(user, credential, redirectUrl) {
-            alert("Signed In: " + user.email + ' redirecting to ' + redirectUrl);
+            //alert("Signed In: " + user.email + ' redirecting to ' + redirectUrl);
             //if (self.props.onSignIn) {
             //    self.props.onSignIn(user);
             //}
             return true;
         }
     },
-    queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-    queryParameterForWidgetMode: 'mode',
+    //queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+    //queryParameterForWidgetMode: 'mode',
     //credentialHelper: firebaseAuthUi.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
     //signInFlow: 'popup',
     signInSuccessUrl: '/',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     ]
 };
