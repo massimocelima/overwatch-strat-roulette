@@ -53,7 +53,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.16.0",
+    "babel-polyfill": "^6.20.0",
     "bourbon": "^4.2.7",
     "classnames": "^2.2.5",
     "firebase": "^3.6.2",
@@ -76,7 +76,8 @@
     "react-title-component": "^1.0.1",
     "reactfire": "^1.0.0",
     "redux": "^3.6.0",
-    "redux-react-firebase": "^2.3.3"
+    "redux-react-firebase": "^2.3.3",
+    "redux-thunk": "^2.1.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

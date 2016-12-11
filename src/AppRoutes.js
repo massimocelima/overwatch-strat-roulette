@@ -6,9 +6,9 @@ import {
 } from 'react-router';
 
 // Here we define all our material-ui ReactComponents.
-import App from './App';
+import AppContainer from './containers/AppContainer'
 import Home from './components/Home/Home';
-import Maps from './components/Maps/Maps';
+import MapsContainer from './containers/MapsContainer';
 import Contact from './components/pages/Contact';
 import Strats  from './components/Strat/Strats';
 import Strat  from './components/Strat/Strat';
@@ -29,10 +29,10 @@ const NotFound = () => (
  * handler and its parent handler like so: Paper > Components > Master
  */
 const AppRoutes = (
-  <Route path="/" component={App}>
+  <Route path="/" component={AppContainer}>
     <IndexRoute component={Home} />
     <Route path="home" component={Home} />
-    <Route path="maps" component={Maps} />
+    <Route path="maps" component={MapsContainer} />
     <Route path="strats" component={Strats} />
     <Route path="strat/:map" component={Strat} />
     <Route path="contact" component={Contact} />

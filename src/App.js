@@ -16,7 +16,7 @@ import styles from './App.css';
 
 import {signedIn, signedOut, hideDrawer, showDrawer, toggleDrawer} from './actions'
 
-import { firebaseAuth, firebaseAuthUi, firebaseAuthUiConfig } from './helpers/constants'
+import { firebaseAuth } from './helpers/constants'
 
 const muiTheme = getMuiTheme({
     fontFamily: 'Roboto, sans-serif',
@@ -47,9 +47,13 @@ class App extends Component {
         store: PropTypes.object.isRequired,
     };
 
+    static propTypes = {
+        navDrawerOpen: PropTypes.bool.isRequired
+    };
+
     componentDidMount () {
         const { store } = this.context;
-        this.unsubscribe = store.subscribe(() => this.forceUpdate());
+        //this.unsubscribe = store.subscribe(() => this.forceUpdate());
         this.removeListener = firebaseAuth.onAuthStateChanged((user) => {
             if (user) {
                 store.dispatch(signedIn(user));
@@ -60,8 +64,8 @@ class App extends Component {
     }
 
     componentWillUnmount () {
+        //this.unsubscribe();
         this.removeListener()
-        this.unsubscribe();
     }
 
     handleTouchTapLeftIconButton = () => {
@@ -82,7 +86,7 @@ class App extends Component {
     handleChangeList = (event, value) => {
         const { router, store } = this.context;
         router.push(value);
-        store.dispatch(hideDrawer());
+        if(this.props.navDrawerOpen) store.dispatch(hideDrawer());
     };
 
     handleScrolled = (event) => {
@@ -107,7 +111,7 @@ class App extends Component {
         let docked = false;
         let showMenuIconButton = true;
         let showHeader = true;
-        let navDrawerOpen = this.context.store.getState().drawer.show;
+        let navDrawerOpen = this.props.navDrawerOpen; //this.context.store.getState().drawer.show;
 
         let leftContentPosition = 0;
 

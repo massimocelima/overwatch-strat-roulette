@@ -8,7 +8,21 @@ export const initialState = {
     },
     drawer: {
         show: false
-    }
+    },
+    maps: {
+        isFetching: false,
+        invalidated: true,
+        data: []
+    },
+    /*strats: {
+        isFetching: false,
+        invalidated: true,
+        data: []
+    },
+    roll: {
+        startA: null,
+        startB: null,
+    }*/
 };
 
 var config = {
