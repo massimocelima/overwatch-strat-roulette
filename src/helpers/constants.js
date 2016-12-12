@@ -1,31 +1,7 @@
 import firebase from 'firebase';
 import firebaseui from 'firebaseui';
 
-export const initialState = {
-    auth: {
-        authenticated: false,
-        user: null
-    },
-    drawer: {
-        show: false
-    },
-    maps: {
-        isFetching: false,
-        invalidated: true,
-        data: []
-    },
-    /*strats: {
-        isFetching: false,
-        invalidated: true,
-        data: []
-    },
-    roll: {
-        startA: null,
-        startB: null,
-    }*/
-};
-
-var config = {
+export const config = {
     apiKey: "AIzaSyCJiJFA4uNXNgbYpTCMTq2Nt8nPeXZuufk",
     authDomain: "overwatch-strat-roulette.firebaseapp.com",
     databaseURL: "https://overwatch-strat-roulette.firebaseio.com",

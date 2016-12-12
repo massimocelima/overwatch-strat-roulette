@@ -45,3 +45,6 @@
     opacity: 1;
     transition: opacity 1.5s ease-in;
 }
+.strat-item {
+    margin-top: 20px;
+}
