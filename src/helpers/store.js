@@ -28,10 +28,20 @@ const initialState = {
      }*/
 };
 
-const enhancer = compose(
-    applyMiddleware(thunkMiddleware),
-    reduxReactFirebase(config),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+var enhancer;
+if ( process.env.NODE_ENV && process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+    enhancer = compose(
+        applyMiddleware(thunkMiddleware),
+        reduxReactFirebase(config),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
+}
+else
+{
+    enhancer = compose(
+        applyMiddleware(thunkMiddleware),
+        reduxReactFirebase(config)
+    );
+}
 
 export const store = createStore( reducer, initialState, enhancer );
